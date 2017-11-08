@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>All our Flats (<%= @flats.count %>)</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="col-xs-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+          <div class="card-category"><%= flat.name %></div>
+          <div class="card-description">
+            <h2><%= flat.description %></h2>
+            <p><%= flat.address %></p>
+            <p>Price (<%= flat.price_per_night %>) | Guests: <%= flat.number_of_guests %> | <em><%= link_to "Show", flat_path(flat) %></em></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "Add a new flat", new_flat_path %>
+
+
+</div>
+
